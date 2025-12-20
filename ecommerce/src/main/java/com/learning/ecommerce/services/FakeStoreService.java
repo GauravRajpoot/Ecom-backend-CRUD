@@ -1,15 +1,24 @@
 package com.learning.ecommerce.services;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.learning.ecommerce.dto.ProductDTO;
+import com.learning.ecommerce.gateway.IFakeStoreGateway;
+
 @Service
 public class FakeStoreService implements IFakeStoreService {
 
-    @Override
-    public List<String> getAllCategories() {
-        return List.of("electronics", "jewelery", "men's clothing", "women's clothing");
+    private final IFakeStoreGateway fakeStoreGateway;
+
+    FakeStoreService(IFakeStoreGateway fakeStoreGateway) {
+        this.fakeStoreGateway = fakeStoreGateway;
     }
 
+    @Override
+    public List<ProductDTO> getAllCategories() throws IOException {
+        return fakeStoreGateway.getAllProducts();
+    }
 }
