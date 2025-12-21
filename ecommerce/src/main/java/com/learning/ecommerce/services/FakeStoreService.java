@@ -21,4 +21,14 @@ public class FakeStoreService implements IFakeStoreService {
     public List<ProductDTO> getAllCategories() throws IOException {
         return fakeStoreGateway.getAllProducts();
     }
+
+    @Override
+    public ProductDTO getProductById(int id) throws IOException {
+        return fakeStoreGateway.getProductById(id);
+    }
+
+    @Override
+    public ProductDTO createProduct(ProductDTO productDTO) throws IOException {
+        return fakeStoreGateway.createProduct(productDTO);
+    }
 }

@@ -20,7 +20,17 @@ public class FakeStoreGatewayImpl implements IFakeStoreGateway {
 
     @Override
     public List<ProductDTO> getAllProducts() throws IOException {
-         return this.fakeStoreApi.geetAllTheProducts().execute().body();
+         return this.fakeStoreApi.getAllTheProducts().execute().body();
      }
 
+    @Override
+    public ProductDTO getProductById(int id) throws IOException {
+        return this.fakeStoreApi.getProductById(id).execute().body();
+    }
+
+    @Override
+    public ProductDTO createProduct(ProductDTO productDTO) throws IOException {
+        return this.fakeStoreApi.createProduct(productDTO).execute().body();
+    }
+ 
 }

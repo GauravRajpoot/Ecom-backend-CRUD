@@ -8,5 +8,9 @@ import com.learning.ecommerce.dto.ProductDTO;
 public interface IFakeStoreService {
 
     List<ProductDTO> getAllCategories() throws IOException;
+
+    ProductDTO getProductById(int id) throws IOException;
+
+    ProductDTO createProduct(ProductDTO productDTO) throws IOException;
     
 }
